@@ -1,0 +1,162 @@
+[
+  {
+    "listTitle": "Chest Rapids Review",
+    "list": [
+      "Apices",
+      "Consolidation / silhouette sign",
+      "Lobar collapse",
+      "Pneumothorax",
+      "Pneumomediastinum",
+      "Coarctation",
+      "Mediastinal mass",
+      "Thyroid mass",
+      "Paraspinal mass",
+      "Hilar regions (nodes)",
+      "Para-tracheal lymph nodes",
+      "Behind heart",
+      "Rib lesions / # / missing",
+      "Scapula / Clavicle / Humerus",
+      "Vertebra",
+      "Below diaphragm (free gas)",
+      "Situs / dextrocardia"
+    ]
+  },
+  {
+    "listTitle": "Shoulder Rapids Review",
+    "list": [
+      "Anterior / posterior dislocation",
+      "# greater tuberosity",
+      "ACJ subluxation / dislocation",
+      "# rib",
+      "Pneumothorax",
+      "Pulmonary mass",
+      "NG lung apex",
+      "Clavicle #"
+    ]
+  },
+  {
+    "listTitle": "Elbow Rapids Review",
+    "list": [
+      "# radial head / neck",
+      "Supracondylar #",
+      "Lateral epicondyle #",
+      "Avulsed epicondyle +/- in joint",
+      "Dislocation",
+      "Effusion (fat pad)",
+      "Lines (ant-humeral / radiocapitellar)",
+      "CRITOL (paeds)"
+    ]
+  },
+  {
+    "listTitle": "Hand/Wrist Rapids Review",
+    "list": [
+      "Torus / greenstick # (paeds)",
+      "Distal radius #",
+      "Radio-ulna dislocation",
+      "Scapho-lunate dissociation",
+      "Lunate / perilunate dislocation ",
+      "Carpal #",
+      "Triquetral # (lateral view)",
+      "Base of 4th and 5th MC dislocation ",
+      "Interphalangeal joint dislocation"
+    ]
+  },
+  {
+    "listTitle": "Pelvis Rapids Review",
+    "list": [
+      "# pubic rami",
+      "# sacrum",
+      "Sacroiliac joint - widened / fused",
+      "Avulsion # - ASIS/AIIS/IT/GT/LT",
+      "Osteomalacia",
+      "SCFE/DH/Perthes'/AVN"
+    ]
+  },
+  {
+    "listTitle": "Knee Rapids Review",
+    "list": [
+      "Tibial plateau #",
+      "Femoral condyle #",
+      "Patella #",
+      "Segond #",
+      "Tibial spine #",
+      "Osteochondral lesion ",
+      "Lipohaemarthrosis"
+    ]
+  },
+  {
+    "listTitle": "Foot/Ankle Rapids Review",
+    "list": [
+      "Lisfranc",
+      "Subtle phalanx #",
+      "Stress # MT",
+      "Freiberg's (AVN)",
+      "Base 5th MT #",
+      "Talar dome OCD",
+      "Talonavicular joint dislocation",
+      "Calcaneal # / Böhler angle"
+    ]
+  },
+  {
+    "listTitle": "Abdomen/Lumbar Spine Rapids Review",
+    "list": [
+      "Pneumoperitoneum",
+      "RUQ gas",
+      "Obstruction",
+      "Colitis",
+      "Gallstones / Appendicolith",
+      "Chronic calcific pancreatitis",
+      "Aneurysm (AAA / iliac etc)",
+      "Widened psoas",
+      "#rib/#pelvis/#vertebra",
+      "Absent pedicle",
+      "Spondylolisthesis",
+      "Pars defect",
+      "Widened SIJ / Sacroiliitis",
+      "Bone deposits / Paget's",
+      "Osteomyelitis",
+      "Lung nodules / collapse"
+    ]
+  },
+  {
+    "listTitle": "Skull/Face Rapids Review",
+    "list": [
+      "Skull # (sharp lines / depressed)",
+      "Pneumocranium",
+      "Enlarged sella",
+      "Fluid level",
+      "Tripod # / Elephant",
+      "Black eyebrow",
+      "Gas in orbit",
+      "TMJ dislocation",
+      "Mandible #",
+      "C-spine #",
+      "Peg # / malalignment",
+      "Deposits - Mets / Myeloma / Pepperpot skull",
+      "Paget's"
+    ]
+  },
+  {
+    "listTitle": "Cervical/Spine Rapids Review",
+    "list": [
+      "Fractures / subluxation",
+      "Atlanto-axial subluxation",
+      "Facet dislocation - unilateral / bilateral",
+      "Vertebral erosion",
+      "Soft tissue widening",
+      "Lung lesion / pneumothorax",
+      "Skull #"
+    ]
+  },
+  {
+    "listTitle": "Thoracic/Spine Rapids Review",
+    "list": [
+      "Wedge #",
+      "Absent pedicle",
+      "Definite dense bone",
+      "Definite lytic bone",
+      "Check cortices",
+      "Paraspinal mass / haematoma  Lung lesion / collapse"
+    ]
+  }
+]
