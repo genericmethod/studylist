@@ -1,1 +1,1 @@
-web: java -jar target/studylist-0.0.1-SNAPSHOT.jar
+worker: java -jar target/studylist-0.0.1-SNAPSHOT.jar
