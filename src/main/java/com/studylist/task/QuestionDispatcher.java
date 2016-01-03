@@ -9,6 +9,7 @@ import com.studylist.model.Question;
 import com.studylist.model.StudyList;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
@@ -26,6 +27,8 @@ public class QuestionDispatcher {
 
   private Random randomGenerator = new Random();
 
+  private static final Logger log = Logger.getLogger(QuestionDispatcher.class);
+
   @Autowired
   ResourceLoader resourceLoader;
 
@@ -38,6 +41,7 @@ public class QuestionDispatcher {
       Question question = buildQuestion(randomList);
       String emailAddress = "farrugia.alexia@gmail.com";
       sendQuestion(question, emailAddress);
+      log.info("**** Question sent!");
     } catch (IOException e) {
       e.printStackTrace();
     }
