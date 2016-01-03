@@ -29,7 +29,7 @@ public class QuestionDispatcher {
   @Autowired
   ResourceLoader resourceLoader;
 
-  @Scheduled(cron = "0 9,15,21 * * *")
+  @Scheduled(cron = "0 0/15 * * * * ")
   public void dispatch() {
 
     try {

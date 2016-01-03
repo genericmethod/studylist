@@ -70,7 +70,7 @@ public class StudylistApplicationTests {
   @Test
   public void loadStudyList() throws IOException {
     final List<StudyList> studyLists = questionDispatcher.loadStudyList();
-    assertEquals(7,studyLists.size());
+    assertEquals(11, studyLists.size());
   }
 
 }
