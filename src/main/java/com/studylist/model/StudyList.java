@@ -9,10 +9,12 @@ import java.util.List;
 public class StudyList{
 
   private String listTitle;
+  private String answer;
   private List<String> list;
 
-  public StudyList(String listTitle, List<String> list) {
+  public StudyList(String listTitle, String answer, List<String> list) {
     this.list = list;
+    this.answer = answer;
     this.listTitle = listTitle;
   }
 
@@ -22,5 +24,9 @@ public class StudyList{
 
   public List<String> getList() {
     return list;
+  }
+
+  public String getAnswer() {
+    return answer;
   }
 }
