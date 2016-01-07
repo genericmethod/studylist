@@ -48,7 +48,7 @@ public class QuestionDispatcher {
     log.info("**** Question dispatcher initialised");
   }
 
-  @Scheduled(cron = "0/30 * * * * * ")
+  @Scheduled(cron = "0 0 7,13,21 * * * ")
   public void dispatch() {
 
       for (UserStudyList userStudyList : userStudyLists) {
