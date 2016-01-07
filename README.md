@@ -24,11 +24,12 @@ Repeating the list and trying to recall the missing item on the list should help
 
 Current implementation is fairly simple.
 The application is a scheduled task (deployed on Heroku as a worker) that performs the following tasks.
- - Randomly selects a list to be learnt from a json document
- - Sends the list with a missing entry via an email together with a link to the answer.
+* Randomly selects a list to be learnt from a json document
+* Sends the list with a missing entry via an email together with a link to the answer.
 
- # Status
- Very early prototype
+# Status
+
+Very early prototype
 
 
 
