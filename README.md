@@ -1,8 +1,6 @@
 # Studylist
 
-Problem : My wife was having a hard time learning and remembering lists for her exams.
-
-Enter Studylist - a little side project I am working on to help people learn lists.
+A little side project help people learn lists.
 
 Example:
 
