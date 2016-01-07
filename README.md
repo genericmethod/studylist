@@ -1,10 +1,36 @@
 # Studylist
 
 Problem : My wife was having a hard time learning and remembering lists for her exams.
+
 Enter Studylist - a little side project I am working on to help people learn lists.
-Current implementation is fairly simple and caters for a single user - my wife.
+
+Example:
+
+Say we want to learn **the 10 basic rules of a pragmatic programmer**:
+
+* Do not repeat yourself
+* Fix broken windows
+* Crash early
+* Use tracer bullets
+* Write shy code
+* Configure, don’t integrate
+* Refactor Early, refactor often
+* Design to test
+* If you’ve found a bug, write a test
+* Know when to stop
+
+A user subscribed to this list will receive a couple of emails through out the day with the whole list, except for an item or two.
+Repeating the list and trying to recall the missing item on the list should help learn the list.
+
+# Implementation
+
+Current implementation is fairly simple.
 The application is a scheduled task (deployed on Heroku as a worker) that performs the following tasks.
- - Randomly selects a list from a json document
+ - Randomly selects a list to be learnt from a json document
  - Sends the list with a missing entry via an email together with a link to the answer.
+
+ # Status
+ Very early prototype
+
 
 
