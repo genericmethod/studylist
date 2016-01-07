@@ -48,7 +48,7 @@ public class QuestionDispatcher {
     log.info("**** Question dispatcher initialised");
   }
 
-  @Scheduled(cron = "0 0 * * * * ")
+  @Scheduled(cron = "0/30 * * * * * ")
   public void dispatch() {
 
       for (UserStudyList userStudyList : userStudyLists) {
@@ -79,6 +79,7 @@ public class QuestionDispatcher {
     invite.setFrom("studylist.io");
     invite.setSubject("Hey! Try this one out! " + new DateTime().toString());
     invite.setHtml(question.getEmailBodyString());
+    invite.setTemplateId("eff8b124-455d-439e-afe3-d801b1b0fed3");
 
     SendGrid.Response response = null;
 
