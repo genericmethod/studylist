@@ -48,7 +48,7 @@ public class QuestionDispatcher {
     log.info("**** Question dispatcher initialised");
   }
 
-  @Scheduled(cron = "0 0 7,13,21 * * * ")
+  @Scheduled(cron = "0 0 7,13,21 * * *")
   public void dispatch() {
 
       for (UserStudyList userStudyList : userStudyLists) {
@@ -62,7 +62,7 @@ public class QuestionDispatcher {
   }
 
   private StudyList getRandomStudyList(List<StudyList> studyList) {
-    if (studyList.size() < 1){
+    if (studyList.size() > 1){
       final int randomListIndex = randomGenerator.nextInt(studyList.size() - 1);
       return studyList.get(randomListIndex);
     }
@@ -91,7 +91,7 @@ public class QuestionDispatcher {
   }
 
   public Question buildQuestion(StudyList originalList) {
-    if(originalList.getList().size() < 1){
+    if(originalList.getList().size() > 1){
       final int randomIndex = randomGenerator.nextInt(originalList.getList().size() - 1);
       return new Question(originalList, originalList.getListTitle(), randomIndex, originalList.getAnswer());
     }
