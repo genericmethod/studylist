@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Studylist by genericmethod</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Studylist</h1>
+        <p>An attempt to make learning lists easier</p>
+
+        <p class="view"><a href="https://github.com/genericmethod/studylist">View the Project on GitHub <small>genericmethod/studylist</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/genericmethod/studylist/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/genericmethod/studylist/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/genericmethod/studylist">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="studylist" class="anchor" href="#studylist" aria-hidden="true"><span class="octicon octicon-link"></span></a>Studylist</h1>
+
+<p>A little side project help people learn lists.</p>
+
+<p>Example:</p>
+
+<p>Say we want to learn <strong>the 10 basic rules of a pragmatic programmer</strong>:</p>
+
+<ul>
+<li>Do not repeat yourself</li>
+<li>Fix broken windows</li>
+<li>Crash early</li>
+<li>Use tracer bullets</li>
+<li>Write shy code</li>
+<li>Configure, don’t integrate</li>
+<li>Refactor Early, refactor often</li>
+<li>Design to test</li>
+<li>If you’ve found a bug, write a test</li>
+<li>Know when to stop</li>
+</ul>
+
+<p>A user subscribed to this list will receive a couple of emails through out the day with the whole list, except for an item or two.
+Repeating the list and trying to recall the missing item on the list should help learn the list.</p>
+
+<h1>
+<a id="implementation" class="anchor" href="#implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementation</h1>
+
+<p>Current implementation is fairly simple.
+The application is a scheduled task (deployed on Heroku as a worker) that performs the following tasks.</p>
+
+<ul>
+<li>Randomly selects a list to be learnt from a json document</li>
+<li>Sends the list with a missing entry via an email together with a link to the answer.</li>
+</ul>
+
+<h1>
+<a id="status" class="anchor" href="#status" aria-hidden="true"><span class="octicon octicon-link"></span></a>Status</h1>
+
+<p>Very early prototype</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/genericmethod">genericmethod</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-72301479-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
