@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = StudyListApplication.class)
@@ -100,8 +101,14 @@ public class StudylistApplicationTests {
 
   @Test
   public void loadStudyList() throws IOException {
-    final Map<String, List<StudyList>> studyListMap = questionDispatcher.getStudyLists();
+    final Map<String, List<StudyList>> studyListMap = questionDispatcher.loadStudyLists();
     assertEquals(2, studyListMap.size());
+  }
+
+  @Test
+  public void loadMotivationalQuotes() throws IOException {
+    final List<String> motivationalQuotes = questionDispatcher.getMotivationalQuotes();
+    assertNotNull(motivationalQuotes);
   }
 
 }

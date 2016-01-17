@@ -39,16 +39,18 @@ public class QuestionDispatcher {
 
   private Map<String, List<StudyList>> studyListMap;
   private List<UserStudyList> userStudyLists;
+  private List<String> motivationalQuotes;
   private Gson gson = new Gson();
 
   @PostConstruct
   public void init() throws IOException {
-    studyListMap = getStudyLists();
-    userStudyLists = getUserStudyList();
+    studyListMap = loadStudyLists();
+    userStudyLists = loadUserStudyList();
+    motivationalQuotes = getMotivationalQuotes();
     log.info("**** Question dispatcher initialised");
   }
 
-  @Scheduled(cron = "0 0 7,13,21 * * * ")
+  @Scheduled(cron = "0/30 * * * * * ")
   public void dispatch() {
 
       for (UserStudyList userStudyList : userStudyLists) {
@@ -70,6 +72,15 @@ public class QuestionDispatcher {
     return studyList.get(0);
   }
 
+  private String getRandomMotivationalQuote(){
+    if (motivationalQuotes.size() > 1) {
+      final int randomIndex = randomGenerator.nextInt(motivationalQuotes.size() - 1);
+      return motivationalQuotes.get(randomIndex);
+    }
+
+    return motivationalQuotes.get(0);
+  }
+
   private void sendQuestion(Question question, String emailAddress) {
 
     SendGrid sendgrid = new SendGrid("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");
@@ -77,14 +88,12 @@ public class QuestionDispatcher {
     SendGrid.Email invite = new SendGrid.Email();
     invite.addTo(emailAddress);
     invite.setFrom("studylist.io");
-    invite.setSubject("Hey! Try this one out! " + new DateTime().toString());
+    invite.setSubject(getRandomMotivationalQuote());
     invite.setHtml(question.getEmailBodyString());
     invite.setTemplateId("eff8b124-455d-439e-afe3-d801b1b0fed3");
 
-    SendGrid.Response response = null;
-
     try {
-      response = sendgrid.send(invite);
+      sendgrid.send(invite);
     } catch (SendGridException e) {
       System.out.println(e);
     }
@@ -100,7 +109,7 @@ public class QuestionDispatcher {
   }
 
   @SuppressWarnings("unchecked")
-  public Map<String, List<StudyList>> getStudyLists() throws IOException {
+  public Map<String, List<StudyList>> loadStudyLists() throws IOException {
 
     String[] jsonFileNames = {
             "radiology.rapids.studylist.json",
@@ -120,11 +129,20 @@ public class QuestionDispatcher {
     return studyList;
   }
 
-  public List<UserStudyList> getUserStudyList() throws IOException {
+  public List<UserStudyList> loadUserStudyList() throws IOException {
     String jsonStudyList =
             IOUtils.toString(resourceLoader.getResource("classpath:studylist/user-studylist.json").getInputStream());
     Type listType = new TypeToken<ArrayList<UserStudyList>>() {}.getType();
     Gson gson = new Gson();
     return gson.fromJson(jsonStudyList, listType);
   }
+
+  public List<String> getMotivationalQuotes() throws IOException {
+    String jsonStudyList =
+            IOUtils.toString(resourceLoader.getResource("classpath:studylist/motivation.json").getInputStream());
+    Type listType = new TypeToken<ArrayList<String>>() {}.getType();
+    Gson gson = new Gson();
+    return gson.fromJson(jsonStudyList, listType);
+  }
+
 }
