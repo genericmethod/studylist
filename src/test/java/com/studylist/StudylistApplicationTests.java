@@ -7,6 +7,7 @@ import com.studylist.model.StudyList;
 import com.studylist.model.UserStudyList;
 import com.studylist.task.QuestionDispatcher;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +75,7 @@ public class StudylistApplicationTests {
   @Test
   public void userStudyListToGson() {
 
-    UserStudyList userStudyList = new UserStudyList("test@email.com","test.json");
+    UserStudyList userStudyList = new UserStudyList("test@email.com","test.json", new DateTime().getMillis());
 
     List<UserStudyList> list = new ArrayList<>();
     list.add(userStudyList);
@@ -107,7 +108,7 @@ public class StudylistApplicationTests {
 
   @Test
   public void loadMotivationalQuotes() throws IOException {
-    final List<String> motivationalQuotes = questionDispatcher.getMotivationalQuotes();
+    final List<String> motivationalQuotes = questionDispatcher.loadMotivationalQuotes();
     assertNotNull(motivationalQuotes);
   }
 

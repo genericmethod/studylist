@@ -1,10 +1,12 @@
 [
   {
-    "email": "cfarrugia@gmail.com",
-    "list": "radiology.rapids.studylist.json"
+    "email": "farrugia.alexia@gmail.com",
+    "list": "radiology.rapids.studylist.json",
+    "examDate":1459461600000
   },
   {
     "email": "cfarrugia@gmail.com",
-    "list": "pragmatic.programming.studylist.json"
+    "list": "pragmatic.programming.studylist.json",
+    "examDate":1459461600000
   }
 ]

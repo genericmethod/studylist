@@ -5,6 +5,8 @@ import com.google.gson.reflect.TypeToken;
 
 import com.sendgrid.SendGrid;
 import com.sendgrid.SendGridException;
+import com.sendgrid.smtpapi.SMTPAPI;
+import com.studylist.Email;
 import com.studylist.model.Question;
 import com.studylist.model.StudyList;
 import com.studylist.model.UserStudyList;
@@ -12,6 +14,8 @@ import com.studylist.model.UserStudyList;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
+import org.joda.time.Days;
+import org.joda.time.Interval;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -46,7 +50,7 @@ public class QuestionDispatcher {
   public void init() throws IOException {
     studyListMap = loadStudyLists();
     userStudyLists = loadUserStudyList();
-    motivationalQuotes = getMotivationalQuotes();
+    motivationalQuotes = loadMotivationalQuotes();
     log.info("**** Question dispatcher initialised");
   }
 
@@ -57,8 +61,8 @@ public class QuestionDispatcher {
         final List<StudyList> studyList = studyListMap.get(userStudyList.getList());
         StudyList randomList = getRandomStudyList(studyList);
         Question question = buildQuestion(randomList);
-        String emailAddress = userStudyList.getEmail();
-        sendQuestion(question, emailAddress);
+        Email email = new Email(question, userStudyList.getExamDate(), userStudyList.getEmail());
+        sendEmail(email);
         log.info("**** Question sent!");
       }
   }
@@ -81,19 +85,20 @@ public class QuestionDispatcher {
     return motivationalQuotes.get(0);
   }
 
-  private void sendQuestion(Question question, String emailAddress) {
+  private void sendEmail(Email emailData) {
 
     SendGrid sendgrid = new SendGrid("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");
 
-    SendGrid.Email invite = new SendGrid.Email();
-    invite.addTo(emailAddress);
-    invite.setFrom("studylist.io");
-    invite.setSubject(getRandomMotivationalQuote());
-    invite.setHtml(question.getEmailBodyString());
-    invite.setTemplateId("eff8b124-455d-439e-afe3-d801b1b0fed3");
+    SendGrid.Email email = new SendGrid.Email();
+    email.addTo(emailData.getEmailAddress());
+    email.setFrom("studylist.io");
+    email.setSubject(getRandomMotivationalQuote());
+    email.setHtml(emailData.getEmailBody());
+    email.setTemplateId("eff8b124-455d-439e-afe3-d801b1b0fed3");
+    email.addSubstitution("-daysLeft-", new String[]{String.valueOf(Days.daysBetween(new DateTime(), new DateTime(emailData.getExamDate())).getDays())});
 
     try {
-      sendgrid.send(invite);
+      sendgrid.send(email);
     } catch (SendGridException e) {
       System.out.println(e);
     }
@@ -137,7 +142,7 @@ public class QuestionDispatcher {
     return gson.fromJson(jsonStudyList, listType);
   }
 
-  public List<String> getMotivationalQuotes() throws IOException {
+  public List<String> loadMotivationalQuotes() throws IOException {
     String jsonStudyList =
             IOUtils.toString(resourceLoader.getResource("classpath:studylist/motivation.json").getInputStream());
     Type listType = new TypeToken<ArrayList<String>>() {}.getType();
