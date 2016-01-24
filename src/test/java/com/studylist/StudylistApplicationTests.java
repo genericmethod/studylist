@@ -7,6 +7,7 @@ import com.studylist.model.StudyList;
 import com.studylist.model.UserStudyList;
 import com.studylist.task.QuestionDispatcher;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = StudyListApplication.class)
@@ -73,7 +75,7 @@ public class StudylistApplicationTests {
   @Test
   public void userStudyListToGson() {
 
-    UserStudyList userStudyList = new UserStudyList("test@email.com","test.json");
+    UserStudyList userStudyList = new UserStudyList("test@email.com","test.json", new DateTime().getMillis());
 
     List<UserStudyList> list = new ArrayList<>();
     list.add(userStudyList);
@@ -100,8 +102,14 @@ public class StudylistApplicationTests {
 
   @Test
   public void loadStudyList() throws IOException {
-    final Map<String, List<StudyList>> studyListMap = questionDispatcher.getStudyLists();
+    final Map<String, List<StudyList>> studyListMap = questionDispatcher.loadStudyLists();
     assertEquals(2, studyListMap.size());
+  }
+
+  @Test
+  public void loadMotivationalQuotes() throws IOException {
+    final List<String> motivationalQuotes = questionDispatcher.loadMotivationalQuotes();
+    assertNotNull(motivationalQuotes);
   }
 
 }

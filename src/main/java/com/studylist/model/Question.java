@@ -20,21 +20,4 @@ public class Question {
   public String getTopic() {return topic;}
   public Integer getMissingListIdx() {return missingListIdx;}
 
-  public String getEmailBodyString() {
-
-    StringBuilder emailBody = new StringBuilder();
-    emailBody.append(this.topic).append("<br/><br/>");
-
-    for (int index = 0; index < this.getStudyList().getList().size(); index ++) {
-      String listItem = getStudyList().getList().get(index);
-      if (index == missingListIdx) {
-        emailBody.append(index+1).append(" ??? ").append("<br/>");
-      } else {
-        emailBody.append(index+1).append(".").append(listItem).append("<br/>");
-      }
-    }
-    emailBody.append("<br/><br/>").append("Answer: ").append(this.getAnswer());
-
-    return emailBody.toString();
-  }
 }
